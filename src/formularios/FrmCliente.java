@@ -39,7 +39,7 @@ public class FrmCliente extends javax.swing.JFrame {
     private void guardar(){ 
         String id = txtIDCliente.getText();
         String nom = txtNombreCliente.getText();
-        int cuil = Integer.parseInt(txtCuil.getText());
+        String cuil = txtCuil.getText();
         String rsoc = cbRazonSocial.getSelectedItem().toString();
         String loc = txtLocalidad.getText();
         String cal = txtCalle.getText();

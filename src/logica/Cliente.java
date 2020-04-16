@@ -46,7 +46,7 @@ public class Cliente {
             while (RS.next()){
                 fila[0] = RS.getInt(1);
                 fila[1] = RS.getString(2);
-                fila[2] = RS.getInt(3);
+                fila[2] = RS.getString(3);
                 fila[3] = RS.getString(4);
                 fila[4] = RS.getString(5);
                 fila[5] = RS.getString(6);
@@ -66,12 +66,12 @@ public class Cliente {
     }
     
     // Metodo para Guardar Datos.
-    public int insertCliente(String nom, int cuil, String rsoc, String loc, String call, int alt, int tel){
+    public int insertCliente(String nom, String cuil, String rsoc, String loc, String call, int alt, int tel){
         int res = 0;
         try {
             PS = CN.getConnection().prepareStatement(SQL_INSERT);
             PS.setString(1, nom);
-            PS.setInt(2, cuil);
+            PS.setString(2, cuil);
             PS.setString(3, rsoc);
             PS.setString(4, loc);
             PS.setString(5, call);
@@ -110,7 +110,7 @@ public class Cliente {
             while (RS.next()){
                 fila[0] = RS.getInt(1);
                 fila[1] = RS.getString(2);
-                fila[2] = RS.getInt(3);
+                fila[2] = RS.getString(3);
                 fila[3] = RS.getString(4);
                 fila[4] = RS.getString(5);
                 fila[5] = RS.getString(6);
@@ -130,7 +130,7 @@ public class Cliente {
     }
 
 // Metodo para actualizar datos.
-    public int updateCliente(String id, String nom, int cuil, String rsco, String loc, String call, int alt, int tel){
+    public int updateCliente(String id, String nom, String cuil, String rsco, String loc, String call, int alt, int tel){
         String SQL = "UPDATE cliente SET cli_nombre='" + nom + "',cli_cuil = '" + cuil +"',cli_razonsocial = '"+ rsco +"',"
                 + "cli_localidad='" + loc + "', cli_calle = '"+ call + "', cli_altura = '"+ alt +"cli_telefono ='" + tel + "' WHERE pro_id =" + id; 
         int res = 0;
